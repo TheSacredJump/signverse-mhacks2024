@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 18
+names: ['I', 'apple', 'can', 'get', 'good', 'have', 'help', 'how', 'like', 'love', 'my', 'no', 'sorry', 'thank-you', 'want', 'yes', 'you', 'your']
+
+roboflow:
+  workspace: asl-y3xkg
+  project: handsspeak
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/asl-y3xkg/handsspeak/dataset/2
