@@ -1,10 +1,13 @@
 'use client';
 
 import React from 'react'
+import Link from 'next/link'
 import { SparklesCore } from './ui/sparkles'
 import { motion } from 'framer-motion'
+import { useUser } from '@clerk/nextjs';
 
 const Hero = () => {
+  const { isSignedIn } = useUser();
   return (
       <main className='w-full h-screen flex flex-col justify-center items-center'>
         <div className="w-full absolute inset-0 h-screen">
@@ -48,9 +51,11 @@ const Hero = () => {
                 <br />
                 Have conversations that matter with everyone. SignVerse breaks the sign-language barrier and connects everybody together.
             </p>
-            <button className='text-xl bg-gradient-to-r from-signverse to-[#CB6CE6] hover:opacity-90 text-white font-medium px-4 py-2 rounded-lg mt-12'>
-                Get Started
-            </button>
+            <Link href={`${isSignedIn ? '/dashboard' : '/sign-up'}`}>
+              <button className='text-xl bg-gradient-to-r from-signverse to-[#CB6CE6] hover:opacity-90 text-white font-medium px-4 py-2 rounded-lg mt-12'>
+                  Get Started
+              </button>
+            </Link>
         </div>
 
         </motion.div>

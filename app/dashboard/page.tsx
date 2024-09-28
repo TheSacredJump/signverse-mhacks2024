@@ -109,7 +109,7 @@ export default function SidebarDemo() {
 export const Logo = () => {
   return (
     <Link
-      href="#"
+      href="/"
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
       <Image src="/signverse.png" alt="logo" width={50} height={50} />
@@ -126,7 +126,7 @@ export const Logo = () => {
 export const LogoIcon = () => {
   return (
     <Link
-      href="#"
+      href="/"
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
       <Image src="/signverse.png" alt="logo" width={50} height={50} />
