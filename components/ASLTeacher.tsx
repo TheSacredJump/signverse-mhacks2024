@@ -20,12 +20,12 @@ const ASLTeacher = () => {
 
     try {
       // Generate image
-      const imageResponse = await fetch('/api/generate-image', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ word: input })
-      });
-      const imageData = await imageResponse.json();
+      // const imageResponse = await fetch('/api/generate-image', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ word: input })
+      // });
+      // const imageData = await imageResponse.json();
 
       // Generate text explanation
       const textResponse = await fetch('/api/generate-text', {
@@ -40,7 +40,6 @@ const ASLTeacher = () => {
         { 
           type: 'bot', 
           content: textData.explanation,
-          image: imageData.imageUrl 
         }
       ]);
     } catch (error) {
@@ -63,9 +62,9 @@ const ASLTeacher = () => {
             <div key={index} className={`mb-4 ${message.type === 'user' ? 'text-right' : 'text-left'}`}>
               <div className={`inline-block p-2 rounded-lg ${message.type === 'user' ? 'bg-blue-600' : 'bg-neutral-700'}`}>
                 <p>{message.content}</p>
-                {message.image && (
+                {/* {message.image && (
                   <img src={message.image} alt={`ASL sign for ${message.content}`} className="mt-2 rounded-lg max-w-full h-auto" />
-                )}
+                )} */}
               </div>
             </div>
           ))}
@@ -79,7 +78,7 @@ const ASLTeacher = () => {
           placeholder="Enter a word to see its ASL sign..."
           className="flex-grow bg-neutral-800 border-neutral-700 text-white"
         />
-        <Button type="submit" disabled={isLoading} className="bg-blue-600 hover:bg-blue-700">
+        <Button type="submit" disabled={isLoading} className="bg-gradient-to-r from-signverse to-[#CB6CE6] hover:opacity-90">
           {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Send'}
         </Button>
       </form>

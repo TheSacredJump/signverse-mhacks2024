@@ -7,6 +7,7 @@ import {
   IconBrandTabler,
   IconSettings,
   IconUserBolt,
+  IconWand,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -14,6 +15,9 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { UserButton, useUser } from "@clerk/nextjs";
 import ASLTeacher from "@/components/ASLTeacher";
+import Translate from "@/components/Translate";
+import SpeechToSign from "@/components/SpeechToSign";
+import Settings from "@/components/Settings";
 
 export default function SidebarDemo() {
   const links = [
@@ -22,6 +26,13 @@ export default function SidebarDemo() {
       id: "dashboard",
       icon: (
         <IconBrandTabler className="text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+    {
+      label: "SignToSpeech",
+      id: "speech",
+      icon: (
+        <IconWand className="text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
@@ -38,13 +49,6 @@ export default function SidebarDemo() {
         <IconSettings className="text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
-    {
-      label: "Logout",
-      id: "logout",
-      icon: (
-        <IconArrowLeft className="text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
   ];
 
   const [open, setOpen] = useState(false);
@@ -58,14 +62,13 @@ export default function SidebarDemo() {
   const renderContent = () => {
     switch (currentView) {
       case "dashboard":
-        return <Content title="Dashboard" />;
+        return <Translate title="Dashboard" />;
+      case "speech":
+        return <SpeechToSign />;
       case "teacher":
         return <ASLTeacher />;
       case "settings":
-        return <Content title="Settings" />;
-      case "logout":
-        // Handle logout logic here
-        return <Content title="Logging out..." />;
+        return <Settings />;
       default:
         return <Content title="Dashboard" />;
     }

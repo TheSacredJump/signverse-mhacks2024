@@ -14,8 +14,8 @@ export async function POST(req: Request) {
     const completion = await openai.chat.completions.create({
       model: "gpt-4",
       messages: [
-        { role: "system", content: "You are a helpful assistant that explains ASL signs." },
-        { role: "user", content: `Explain how to sign the word "${word}" in American Sign Language. Provide a clear, step-by-step description.` }
+        { role: "system", content: "You are a helpful assistant that explains ASL signs and teaches ASL." },
+        { role: "user", content: word }
       ],
     });
 
