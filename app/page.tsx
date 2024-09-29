@@ -294,7 +294,7 @@ const ContactSection = React.forwardRef<HTMLDivElement, { id: string }>((props, 
          <p className="text-xl text-subtext text-center">
            Get in touch with our team for support or inquiries
          </p>
-         {/* Add a contact form or contact information here */}
+         {"sp180@rice.edu; adarshb@umich.edu; sparshb@umich.edu; kudupudi@umich.edu"}
        </div>
      </motion.div>
    </main>
