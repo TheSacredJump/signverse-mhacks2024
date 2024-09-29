@@ -252,7 +252,7 @@ const AboutSection = React.forwardRef<HTMLDivElement, { id: string }>((props, re
        <div className='flex flex-col z-20 items-center justify-center w-full h-full'>
          <h2 className="text-6xl font-bold mb-4">About Us</h2>
          <p className="text-xl text-subtext text-center">
-           Learn about our mission to bridge communication gaps through technology
+           We bridge the gap between Deaf people and Hearing people. We are here to help by providing a clear route through accessibility.
          </p>
          {/* Add more about your company here */}
        </div>
