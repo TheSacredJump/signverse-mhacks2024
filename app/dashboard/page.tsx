@@ -8,6 +8,7 @@ import {
   IconSettings,
   IconUserBolt,
   IconWand,
+  IconSparkles,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -15,6 +16,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { UserButton, useUser } from "@clerk/nextjs";
 import ASLTeacher from "@/components/ASLTeacher";
+import Character from "@/components/Character";
 import Translate from "@/components/Translate";
 import SpeechToSign from "@/components/SpeechToSign";
 import Settings from "@/components/Settings";
@@ -25,21 +27,21 @@ export default function SidebarDemo() {
       label: "Dashboard",
       id: "dashboard",
       icon: (
-        <IconBrandTabler className="text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <IconUserBolt className="text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "SignToSpeech",
+      label: "Transcribe ASL",
       id: "speech",
       icon: (
         <IconWand className="text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "ASL Tutor",
-      id: "teacher",
+      label: "Translate ASL",
+      id: "translate",
       icon: (
-        <IconUserBolt className="text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <IconSparkles className="text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
@@ -62,11 +64,11 @@ export default function SidebarDemo() {
   const renderContent = () => {
     switch (currentView) {
       case "dashboard":
-        return <Translate title="Dashboard" />;
+        return <Character />;
       case "speech":
         return <SpeechToSign />;
-      case "teacher":
-        return <ASLTeacher />;
+      case "translate":
+        return <Translate />;
       case "settings":
         return <Settings />;
       default:

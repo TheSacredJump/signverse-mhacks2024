@@ -1,22 +1,18 @@
-import React, { useState, useRef } from 'react';
-import Spline from '@splinetool/react-spline';
+import dynamic from 'next/dynamic';
 
-const ASLTutor = () => {
-  const splineRef = useRef();
-  const [currentAnimation, setCurrentAnimation] = useState(null);
+const SplineScene = dynamic(() => import('../components/SplineScene'), {
+  ssr: false,
+  loading: () => <p>Loading 3D scene...</p>
+});
 
-  function onLoad(spline: any) {
-    splineRef.current = spline;
-  }
+const TextToSpeech = dynamic(() => import('../components/TextToSpeech'), {
+  ssr: false
+});
 
+export default function Home() {
   return (
-    <div style={{ height: '100vh', width: '100%' }}>
-      <Spline
-        scene="https://prod.spline.design/your-scene-id/scene.splinecode"
-        onLoad={onLoad}
-      />
-    </div>
+    <main className='w-full h-screen'>
+      <SplineScene />
+    </main>
   );
-};
-
-export default ASLTutor;
+}

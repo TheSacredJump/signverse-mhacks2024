@@ -13,6 +13,7 @@ import { SparklesCore } from '@/components/ui/sparkles'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SignedIn, SignedOut, UserButton, useUser } from '@clerk/nextjs'
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
 
 const Navbar = () => {
@@ -48,11 +49,11 @@ const Navbar = () => {
              <Image src={'/signverse.png'} alt='logo' width={50} height={50} className='w-12 h-12' />
              <h1 className='text-milk text-2xl hidden md:flex'>SignVerse</h1>
            </Link>
-           <Link href='/#features' className='hidden lg:flex'>
-             <h1 className='text-subtext hover:scale-105 hover:bg-gray-200 rounded px-2 transition duration-300 hover:text-signverse'>Features</h1>
+           <Link href='/#products' className='hidden lg:flex'>
+             <h1 className='text-subtext hover:scale-105 hover:bg-gray-200 rounded px-2 transition duration-300 hover:text-signverse'>Products</h1>
            </Link>
-           <Link href='/#faqs' className='hidden lg:flex'>
-             <h1 className='text-subtext hover:scale-105 hover:bg-gray-200 rounded px-2 transition duration-300 hover:text-signverse'>FAQs</h1>
+           <Link href='/#about' className='hidden lg:flex'>
+             <h1 className='text-subtext hover:scale-105 hover:bg-gray-200 rounded px-2 transition duration-300 hover:text-signverse'>About Us</h1>
            </Link>
            <Link href='/#contact' className='hidden lg:flex'>
              <h1 className='text-subtext hover:scale-105 hover:bg-gray-200 rounded px-2 transition duration-300 hover:text-signverse'>Contact</h1>
@@ -192,13 +193,29 @@ const ProductsSection = React.forwardRef<HTMLDivElement, { id: string }>((props,
        }}
        className="relative flex flex-col gap-4 items-center justify-center px-4"
      >
-       <div className='flex flex-col z-20 items-center justify-center w-full h-full'>
-         <h2 className="text-6xl font-bold mb-4">Our Products</h2>
-         <p className="text-xl text-subtext text-center">
-           Discover our innovative sign language translation tools
-         </p>
-         {/* Add your product showcases here */}
-       </div>
+       <div className="flex flex-col overflow-hidden">
+      <ContainerScroll
+        titleComponent={
+          <>
+            <h1 className="text-4xl font-semibold text-milk mb-7">
+              Our AI Tutor Teaches You <br />
+              <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+                Sign Language
+              </span>
+            </h1>
+          </>
+        }
+      >
+        <Image
+          src={`/product.png`}
+          alt="hero"
+          height={720}
+          width={1400}
+          className="mx-auto rounded-2xl object-cover h-full object-left-top"
+          draggable={false}
+        />
+      </ContainerScroll>
+    </div>
      </motion.div>
    </main>
  </Section>
